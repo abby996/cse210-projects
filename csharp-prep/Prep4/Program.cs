@@ -4,9 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep4 World!");
         
-        list <int> numbers= new list<int>();
+        list <int> numbers = new list<int>();
 
         int userNumbers= -1;
         while (userNumbers != 0)
@@ -34,7 +33,7 @@ class Program
             
         }
         // compute the variable
-        loat average = ((float)sum) / numbers.Count;
+        float average = ((float)sum) / numbers.Count;
         Console.WriteLine($"The average is: {average}");
 
 
