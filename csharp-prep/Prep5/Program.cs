@@ -4,14 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-
-         DisplayWelcomeMessage();
+        DisplayWelcomeMessage();
 
         string userName = PromptUserName();
         int userNumber = PromptUserNumber();
 
-        int  squaredNumber = SquareNumber(userNumber);
+        int squaredNumber = SquareNumber(userNumber);
 
         DisplayResult(userName, squaredNumber);
     }
@@ -37,5 +35,14 @@ class Program
         return number;
     }
 
-    
+    static int SquareNumber(int number)
+    {
+        int square = number * number;
+        return square;
+    }
+
+    static void DisplayResult(string name, int square)
+    {
+        Console.WriteLine($"{name}, the square of your number is {square}");
+    }
 }
