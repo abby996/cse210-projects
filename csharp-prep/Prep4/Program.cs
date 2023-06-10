@@ -1,17 +1,20 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
         
-        list <int> numbers = new list<int>();
-
-        int userNumbers= -1;
-        while (userNumbers != 0)
-        {console.ReadLine() = ("Enter a number (0 to quit:)" );
-
-          string userResponse = Console.ReadLine();
+          List<int> numbers = new List<int>();
+        
+        
+        int userNumber = -1;
+        while (userNumber != 0)
+        {
+            Console.Write("Enter a number (0 to quit): ");
+            
+            string userResponse = Console.ReadLine();
             userNumber = int.Parse(userResponse);
             
             // Only add the number to the list if it is not 0
@@ -21,23 +24,21 @@ class Program
             }
         }
 
-        // compute the sum
-        int sum =0
+        // Part 1: Compute the sum
+        int sum = 0;
         foreach (int number in numbers)
         {
             sum += number;
         }
 
-        Console.WriteLine($"The sum is: {sum}")
-        {
-            
-        }
-        // compute the variable
+        Console.WriteLine($"The sum is: {sum}");
+
+        // Part 2: Compute the average
+        
         float average = ((float)sum) / numbers.Count;
         Console.WriteLine($"The average is: {average}");
 
-
-        // Find the max
+        // Part 3: Find the max
         // There are several ways to do this, such as sorting the list
         
         int max = numbers[0];
@@ -54,4 +55,3 @@ class Program
         Console.WriteLine($"The max is: {max}");
     }
 }
-    
