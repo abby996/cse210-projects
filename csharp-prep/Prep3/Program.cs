@@ -6,43 +6,36 @@ class Program
     {
         Console.WriteLine("Hello Prep3 World!");
          {
-        Console.Write("What is your grade percentage? ");
-        string answer = Console.ReadLine();
-        int percent = int.Parse(answer);
 
-        string letter = "";
+         Console.Write("What is the magic number? ");
+         int magicNumber = int.Parse(Console.ReadLine());   
+        // For Part 3, where we use a random number
+        Random randomGenerator = new Random();
+        int magicNumber = randomGenerator.Next(1, 101);
 
-        if (percent >= 90)
-        {
-            letter = "A";
-        }
-        else if (percent >= 80)
-        {
-            letter = "B";
-        }
-        else if (percent >= 70)
-        {
-            letter = "C";
-        }
-        else if (percent >= 60)
-        {
-            letter = "D";
-        }
-        else
-        {
-            letter = "F";
-        }
+        int guess = -1;
 
-        Console.WriteLine($"Your grade is: {letter}");
-        
-        if (percent >= 70)
+        // We could also use a do-while loop here...
+        while (guess != magicNumber)
         {
-            Console.WriteLine("You passed!");
-        }
-        else
-        {
-            Console.WriteLine("Better luck next time!");
-        }
+            Console.Write("What is your guess? ");
+            guess = int.Parse(Console.ReadLine());
+
+            if (magicNumber > guess)
+            {
+                Console.WriteLine("Higher");
+            }
+            else if (magicNumber < guess)
+            {
+                Console.WriteLine("Lower");
+            }
+            else
+            {
+                Console.WriteLine("You guessed it!");
+            }
+
+                            
     }
+         }
     }
 }
