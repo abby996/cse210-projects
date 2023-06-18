@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+
 
 class Program
 {
@@ -38,6 +38,7 @@ class Program
       {
         
         case 1:
+             PromptGenerator promptGenerator = new PromptGenerator();
              string prompt = new PromptGenerator().GetRandomPrompt();
              Console.WriteLine(prompt);
              Console.WriteLine(">");
@@ -59,7 +60,7 @@ class Program
         case 4:
              Console.WriteLine("What is the filename?") ;
              string fileNameSave = Console.ReadLine();
-             journal.SaveToFile(fileNameSave);
+             journal.saveToFile(fileNameSave);
 
           break;
 
