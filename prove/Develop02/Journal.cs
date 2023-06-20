@@ -1,54 +1,51 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 class Journal
 {
-List<Entry> entries;
+    List<Entry> entries;
 
-public Journal
-  {
-    entries = new List<Entry>();
-  }
-
-public void AddEntry(Entry newEntry)
-  {
-    entries.Add(NewEntry);
-  }
-
-public void DisplayAll()
-  {
-    foreach (Entry entry in entries)
+    public Journal()
     {
-        entry.Display();
-        Console.WriteLine();
+        entries = new List<Entry>();
     }
-  }
 
-public void SaveToFile (string file)
+    public void AddEntry(Entry newEntry)
+    {
+        entries.Add(newEntry);
+    }
 
-  List<string> records = new List<string>;
-  foreach(Entry entry in entries)
-  {
-    string entryAsCSV = $"{entry.date} | {entry.promptText} | {entry.entryText}";
-    records.Add(entryAsCSV);
-  }
-  File.WriteAllLines(_file, records);
+    public void DisplayAll()
+    {
+        foreach (Entry entry in entries)
+        {
+            entry.Display();
+            Console.WriteLine();
+        }
+    }
 
-public void LoadFromFile(string file) 
-{
-  List<string> records = File.ReadAllLines(file).ToList;
-  foreach(string record in records)
-  {
-    string[] splitstring = record.Split('|');
+    public void SaveToFile(string file)
+    {
+        List<string> records = new List<string>();
+        foreach (Entry entry in entries)
+        {
+            string entryAsCSV = $"{entry.date} | {entry.promptText} | {entry.entryText}";
+            records.Add(entryAsCSV);
+        }
+        File.WriteAllLines(file, records);
+    }
 
-    Entry entry = new Entry(splitstring [0], splitstring[1],splitstring[2]);
+    public void LoadFromFile(string file)
+    {
+        List<string> records = File.ReadAllLines(file).ToList();
+        foreach (string record in records)
+        {
+            string[] splitString = record.Split('|');
 
-    entries.Add(entry);
-  }
-} 
+            Entry entry = new Entry(splitString[0].Trim(), splitString[1].Trim(), splitString[2].Trim());
+
+            entries.Add(entry);
+        }
+    }
 }
-
-      
-
-        
-    
