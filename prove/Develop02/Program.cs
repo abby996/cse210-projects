@@ -38,11 +38,13 @@ class Program
       {
         
         case 1:
+            
              string prompt = new PromptGenerator().GetRandomPrompt();
              Console.WriteLine(prompt);
              Console.WriteLine(">");
              string response = Console.ReadLine();
              string date = DateTime.Now.Date.ToString("MMM dd ,yyyy");
+
              Entry entry = new Entry(date, prompt, response);
              journal.AddEntry(entry);
         break;

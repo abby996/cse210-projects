@@ -1,74 +1,54 @@
 using System;
+using System.Collections.Generic;
 
-
-class Program
+class Journal
 {
-    static void Main(string[] args)
+List<Entry> entries;
+
+public Journal
+  {
+    entries = new List<Entry>();
+  }
+
+public void AddEntry(Entry newEntry)
+  {
+    entries.Add(NewEntry);
+  }
+
+public void DisplayAll()
+  {
+    foreach (Entry entry in entries)
     {
-      PromptGenerator promptGenerator = new PromptGenerator();
-      Journal journal =new Journal();
-
-    int              menuUserInput = 0;
-    List<string>     menu = new List<String>
-
-    {
-
-      "Please select one of the following choices:",
-
-      "1. Write",
-      "2. Display",
-      "3.Load",
-      "4. Save", 
-      "5. Quit",
-      "What would you like to do?"
-    };
-
-      Console.WriteLine("Welcome to the journal program");
-
-    while (menuUserInput !=5)
-    {
-      foreach (string menuItem in menu)
-      {
-        Console.WriteLine(menuItem) ;
-      }
-        menuUserInput = int.Parse(Console.ReadLine());
-       
-
-      switch (menuUserInput)
-      {
-        
-        case 1:
-             PromptGenerator promptGenerator = new PromptGenerator();
-             string prompt = new PromptGenerator().GetRandomPrompt();
-             Console.WriteLine(prompt);
-             Console.WriteLine(">");
-             string response = Console.ReadLine();
-             string date = DateTime.Now.Date.ToString("MMM dd ,yyyy");
-             Entry entry = new Entry(date, prompt, response);
-             journal.AddEntry(entry);
-        break;
-
-        case 2:
-             journal.DisplayAll();
-          break;
-        case 3:
-             Console.WriteLine("Name of file to load?") ;
-             string fileNameLoad = Console.ReadLine();
-             journal.LoadFromFile(fileNameLoad);
-
-          break;
-        case 4:
-             Console.WriteLine("What is the filename?") ;
-             string fileNameSave = Console.ReadLine();
-             journal.saveToFile(fileNameSave);
-
-          break;
-
-      }
+        entry.Display();
+        Console.WriteLine();
     }
+  }
+
+public void SaveToFile (string file)
+
+  List<string> records = new List<string>;
+  foreach(Entry entry in entries)
+  {
+    string entryAsCSV = $"{entry.date} | {entry.promptText} | {entry.entryText}";
+    records.Add(entryAsCSV);
+  }
+  File.WriteAllLines(_file, records);
+
+public void LoadFromFile(string file) 
+{
+  List<string> records = File.ReadAllLines(file).ToList;
+  foreach(string record in records)
+  {
+    string[] splitstring = record.Split('|');
+
+    Entry entry = new Entry(splitstring [0], splitstring[1],splitstring[2]);
+
+    entries.Add(entry);
+  }
+} 
+}
 
       
 
         
-    }
-}
+    
