@@ -1,49 +1,40 @@
-
-
 class Scripture
-{ 
-    Reference reference ;
-    List<Word>  words;
+{
+    public Reference Reference { get; }
+    private List<Word> words;
 
-    public Scripture(Reference _references, string _text )
+    public Scripture(Reference reference, string text)
     {
-        reference =_references;
-        words = new List<Word>();
-        List<string> allwords = _text.Split(' ').ToList();
-        foreach (string wordstring in allwords)
+        Reference = reference;
+        words = text.Split(' ').Select(wordString => new Word(wordString)).ToList();
+    }
+
+    public void HideRandomWords()
+    {
+        Random random = new Random();
+
+        // Get the words that are not already hidden
+        List<Word> unhiddenWords = words.Where(word => !word.GetIsHidden()).ToList();
+
+        if (unhiddenWords.Count > 0)
         {
-            Word newWord = new Word (wordstring);
-            words.Add(newWord);
-    
+            // Select a random word from the unhidden words list
+            int randomIndex = random.Next(unhiddenWords.Count);
+            Word randomWord = unhiddenWords[randomIndex];
+            
+            // Hide the selected random word
+            randomWord.Hide();
         }
     }
 
-    public void HideRandomWords( )
+    public bool IsCompletelyHidden()
     {
-        
+        return words.All(word => word.IsHidden);
     }
 
     public string GetDisplayText()
-{
-    string scriptureText = "";
-    foreach (Word word in words)
     {
-        if (word.GetIsHidden() == false)
-        {
-            scriptureText += word.GetDisplayText() + " ";
-        }
-        else
-        {
-            scriptureText += new string('_', word.GetDisplayText().Length) + " ";
-        }
+        string scriptureText = string.Join(" ", words.Select(word => word.GetDisplayText()));
+        return $"{Reference.GetDisplayText()}\n{scriptureText}";
     }
-
-    return $"{reference.GetDisplayText()} {scriptureText}";
-}
-
-   public bool IsCompletelyHidden()
-{
-    
-    return false; 
-}
 }

@@ -1,35 +1,40 @@
 using System;
+
 class Reference
 {
-    string book;
-    int chapter, verse, endverse;
-    public Reference(string _book, int _chapter, int _verse)
+    public string Book { get; }
+    public int Chapter { get; }
+    public int Verse { get; }
+    public int EndVerse { get; }
+
+    public Reference(string book, int chapter, int verse)
     {
-        book    =_book;
-        chapter =_chapter;
-        verse   =_verse;
-    }
-    public Reference(string _book, int _chapter, int _verseStart, int _verseEnd )
-    {
-        book        = _book;
-        chapter     =_chapter;
-        verse       =_verseStart;
-        endverse   =_verseEnd;
+        Book = book;
+        Chapter = chapter;
+        Verse = verse;
+        EndVerse = 0;
     }
 
+      public Reference(string book, int chapter, int verseStart, int verseEnd)
+    {
+        Book = book;
+        Chapter = chapter;
+        Verse = verseStart;
+        EndVerse = verseEnd;
+    }
     public string GetDisplayText()
     {
         
         {
             string ReferencesDisplay = "";
 
-            if (endverse != 0)
+            if (EndVerse != 0)
             {
-                ReferencesDisplay = $"{book}, {chapter}: {verse}-{endverse}";
+                ReferencesDisplay = $"{Book}, {Chapter}: {Verse}-{EndVerse}";
             }
             else
             
-                ReferencesDisplay = $"{book}, {chapter}: {verse}";
+                ReferencesDisplay = $"{Book}, {Chapter}: {Verse}";
 
             return ReferencesDisplay;
         }

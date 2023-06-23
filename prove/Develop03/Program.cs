@@ -1,25 +1,43 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-      
+        ScriptureLibrary library = new ScriptureLibrary();
+        library.LoadScripturesFromFile("scriptures.txt");
 
-      string userInput = "";
+        Console.WriteLine("Welcome to the Scripture Memorization Program!");
 
-      Reference reference = new Reference("Proverbes ", 3 ,5, 6);
-      Scripture scripture = new Scripture(reference, "Trust in The Lord with all thine heart,");
-        
-      
-      while (userInput != "quit")
-      {
-       Console.WriteLine(scripture.GetDisplayText());
-       Console.WriteLine();
-       Console.WriteLine("Press 'Enter' to continue or type 'quit' to finish"); 
-       userInput=Console.ReadLine();
-       scripture.HideRandomWords();
-      }
-        
+        while (true)
+        {
+            Scripture scripture = library.GetNextScripture();
+
+            if (scripture == null)
+            {
+                break;
+            }
+
+            ClearConsole();
+            Console.WriteLine(scripture.GetDisplayText());
+            Console.WriteLine("\nPress Enter to continue or type 'quit' to finish.");
+
+            string userInput = Console.ReadLine();
+
+            if (userInput == "quit")
+            {
+                break;
+            }
+
+            scripture.HideRandomWords();
+        }
+
+        Console.WriteLine("\nProgram finished. Press Enter to exit.");
+        Console.ReadLine();
+    }
+
+    static void ClearConsole()
+    {
+        Console.Clear();
+        Console.SetCursorPosition(0, 0);
     }
 }
