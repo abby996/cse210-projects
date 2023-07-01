@@ -17,7 +17,7 @@ class Program
                 break;
             }
 
-            ClearConsole();
+            Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());
             Console.WriteLine("\nPress Enter to continue or type 'quit' to finish.");
 
