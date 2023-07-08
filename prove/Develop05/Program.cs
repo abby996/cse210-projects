@@ -1,29 +1,83 @@
 using System;
+using System.Collections.Generic;
 
-namespace employee_demo
-{
-  
 class Program
 {
     static void Main(string[] args)
     {
-        HourlyEmployee hEmployee = new HourlyEmployee();
-        hEmployee.SetName( "Abdias");
-        hEmployee.SetIdNumber("123abc");
-        hEmployee.SetPayRate(15);
-        hEmployee.SetHoursWorked(35);
+        int userMenuInput = 0;
 
-        SAlaryEmployee sEmployee = new SAlaryEmployee();
-        sEmployee.SetName("Taina");
-        sEmployee.SetIdNumber("456EJF");
-        sEmployee.SetSalary(60000);
+        List<string> menu = new List<string>()
+        {
+            "Menu Options:",
+            "1. Create New Goals",
+            "2. List Goals",
+            "3. Save Goals",
+            "4. Load Goals",
+            "5. Record Event",
+            "6. Quit"
+        };
 
-    
+        GoalManager goalManager = new GoalManager(); // Instantiate the GoalManager object once
 
+        while (userMenuInput != 6)
+        {
+            Console.Clear();
+            foreach (string menuItem in menu)
+            {
+                Console.WriteLine(menuItem);
+            }
+            Console.Write("Select a choice from the menu: ");
+            userMenuInput = int.Parse(Console.ReadLine());
+            Console.Clear();
+
+            switch (userMenuInput)
+            {
+                case 1:
+                    goalManager.CreateGoal();
+                    break;
+
+                case 2:
+                    goalManager.ListGoalDetails();
+                    break;
+
+                case 3:
+                    goalManager.SaveGoals();
+                    break;
+
+                case 4:
+                    goalManager.LoadGoals();
+                    break;
+
+                case 5:
+                    goalManager.RecordEvent();
+                    break;
+            }
+        }
     }
-    Public static void DisplayEmplyeeInformation(Employee employee)
+}
+
+public class GoalManager
+{
+    private List<Goals> _goals;
+    private int _score;
+
+    public GoalManager()
     {
-        _employee = employee;
+        _goals = new List<Goals>();
+        _score = 0;
     }
-}  
+
+    public void SaveGoals()
+    {
+        // Logic to save the goals to a file or database
+        Console.WriteLine("Saving goals...");
+    }
+
+    public void LoadGoals()
+    {
+        // Logic to load the goals from a file or database
+        Console.WriteLine("Loading goals...");
+    }
+
 }

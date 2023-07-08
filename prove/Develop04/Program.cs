@@ -14,13 +14,13 @@ class Program
             "1. Start breathing activity",
             "2. Start reflecting activity",
             "3. Start Listenning activity", 
-            "Quit"
+            "4. Quit"
         };
 
         while (userMenuInput !=4)
         {
             Console.Clear();
-            foreach (string menuItem in Menu)
+            foreach (string menuItem in menu)
             {
                Console.WriteLine(menuItem) ;
             }
