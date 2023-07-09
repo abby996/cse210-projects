@@ -9,13 +9,14 @@ class Program
 
         List<string> menu = new List<string>()
         {
+            "You have 0 points.",
             "Menu Options:",
-            "1. Create New Goal",
-            "2. List Goals",
-            "3. Save Goals",
-            "4. Load Goals",
-            "5. Record Event",
-            "6. Quit"
+              "1. Create New Goal",
+              "2. List Goals",
+              "3. Save Goals",
+              "4. Load Goals",
+              "5. Record Event",
+              "6. Quit"
         };
 
         GoalManager goalManager = new GoalManager(); // Instantiate the GoalManager object once
