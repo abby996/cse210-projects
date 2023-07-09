@@ -85,14 +85,15 @@ public class GoalManager
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
-        Console.Write("Which type goal would you like to create? ");
+        Console.Write("Which type of goal would you like to create? ");
+       
         string goalType = Console.ReadLine();
 
-        Console.Write("Enter goal short name: ");
+        Console.Write("What  is the name of your goal? ");
         string shortName = Console.ReadLine();
-        Console.Write("Enter goal description: ");
+        Console.Write("What is a short description: ");
         string description = Console.ReadLine();
-        Console.Write("Enter goal points: ");
+        Console.Write("What is the amount of points associated with Provethis goal: ");
         int points = int.Parse(Console.ReadLine());
 
         switch (goalType)
@@ -127,7 +128,7 @@ public void RecordEvent()
         Console.WriteLine($"{i + 1}. {_goals[i].GetStringRepresentation()}");
     }
 
-    Console.Write("Enter goal number: ");
+    Console.Write("What is the amount of points associated withthis goal: ");
     int goalNumber = int.Parse(Console.ReadLine()) - 1;
 
     if (goalNumber >= 0 && goalNumber < _goals.Count)
