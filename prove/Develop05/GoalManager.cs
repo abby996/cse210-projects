@@ -78,12 +78,7 @@ public class GoalManager
 
     public void CreateGoal()
     {
-        Console.Write("Enter goal short name: ");
-        string shortName = Console.ReadLine();
-        Console.Write("Enter goal description: ");
-        string description = Console.ReadLine();
-        Console.Write("Enter goal points: ");
-        int points = int.Parse(Console.ReadLine());
+       
 
         // Additional input and logic for specific goal types
         Console.WriteLine("The types of Goals are:");
@@ -92,6 +87,13 @@ public class GoalManager
         Console.WriteLine("3. Checklist Goal");
         Console.Write("Which type goal would you like to create? ");
         string goalType = Console.ReadLine();
+
+        Console.Write("Enter goal short name: ");
+        string shortName = Console.ReadLine();
+        Console.Write("Enter goal description: ");
+        string description = Console.ReadLine();
+        Console.Write("Enter goal points: ");
+        int points = int.Parse(Console.ReadLine());
 
         switch (goalType)
         {

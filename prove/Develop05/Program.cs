@@ -10,7 +10,7 @@ class Program
         List<string> menu = new List<string>()
         {
             "Menu Options:",
-            "1. Create New Goals",
+            "1. Create New Goal",
             "2. List Goals",
             "3. Save Goals",
             "4. Load Goals",
