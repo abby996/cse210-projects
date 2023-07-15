@@ -3,13 +3,30 @@ using System.Collections.Generic;
 
 class Product
 {
-    public string Name { get; set; }
-    public int ProductId { get; set; }
-    public decimal Price { get; set; }
-    public int Quantity { get; set; }
+    private string name;
+    private decimal price;
+    private int quantity;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public decimal Price
+    {
+        get { return price; }
+        set { price = value; }
+    }
+
+    public int Quantity
+    {
+        get { return quantity; }
+        set { quantity = value; }
+    }
 
     public decimal CalculateTotalPrice()
     {
-        return Price * Quantity;
+        return price * quantity;
     }
 }

@@ -1,20 +1,41 @@
-
-
-
 class Address
 {
-    public string Street { get; set; }
-    public string City { get; set; }
-    public string State { get; set; }
-    public string Country { get; set; }
+    private string street;
+    private string city;
+    private string state;
+    private string country;
+
+    public string Street
+    {
+        get { return street; }
+        set { street = value; }
+    }
+
+    public string City
+    {
+        get { return city; }
+        set { city = value; }
+    }
+
+    public string State
+    {
+        get { return state; }
+        set { state = value; }
+    }
+
+    public string Country
+    {
+        get { return country; }
+        set { country = value; }
+    }
 
     public bool IsInUSA()
     {
-        return Country == "USA";
+        return country == "USA";
     }
 
     public string GetFullAddress()
     {
-        return $"{Street}\n{City}, {State}\n{Country}";
+        return $"{street}\n{city}, {state}\n{country}";
     }
 }

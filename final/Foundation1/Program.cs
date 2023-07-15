@@ -4,9 +4,11 @@ using System;
 
 class Program
 {
+   
+
     static void Main(string[] args)
     {
-           List<Video> videos = new List<Video>();
+        List<Media> mediaList = new List<Media>();
 
         Video video1 = new Video("Diamonds", "Rihanna", 120);
         video1.AddComment("Taylor Smith", "That's supercool");
@@ -23,22 +25,13 @@ class Program
         video3.AddComment("Taina Pierre", "I really love your message");
         video3.AddComment("Fritznord telier", "I learn so much , Thank you");
 
-        videos.Add(video1);
-        videos.Add(video2);
-        videos.Add(video3);
 
-        foreach (Video video in videos)
+        
+         mediaList.AddRange(new Media[] { video1, video2 });
+
+        foreach (Media media in mediaList)
         {
-            Console.WriteLine("Title: " + video.Title);
-            Console.WriteLine("Author: " + video.Author);
-            Console.WriteLine("Length: " + video.Length + " seconds");
-            Console.WriteLine("Number of comments: " + video.GetNumComments());
-            Console.WriteLine("Comments:");
-            foreach (Comment comment in video.Comments)
-            {
-                Console.WriteLine(comment.CommenterName + ": " + comment.Text);
-            }
-            Console.WriteLine();
+            media.DisplayInfo();
         }
     }
 }
