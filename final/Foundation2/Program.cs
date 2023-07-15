@@ -19,14 +19,14 @@ class Program
 
         Product product1 = new Product
         {
-            Name = "Product 1",
+            Name = "sneaker",
             Price = 10.5m,
             Quantity = 2
         };
 
         Product product2 = new Product
         {
-            Name = "Product 2",
+            Name = "Bag",
             Price = 15.75m,
             Quantity = 3
         };
